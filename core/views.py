@@ -1,6 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+
+# third party app
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 
-def index(request):
-    return HttpResponse('hello world')
+class TestView(APIView):
+    def get(self, request, *args, **kwargs):
+        return Response({"name": "Soknoy", "age": 19})
